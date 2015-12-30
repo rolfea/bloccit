@@ -33,3 +33,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'bootstrap-sass'
+
+# Used for encrypting User password_digest
+gem 'bcrypt'
