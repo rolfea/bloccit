@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
       expect(user).to respond_to(:name)
     end
 
-    it "shoiuld respond to email" do
+    it "should respond to email" do
       expect(user).to respond_to(:email)
     end
   end
@@ -41,6 +41,14 @@ RSpec.describe User, type: :model do
 
     it "should be an invalid user to incorrectly formatted email address" do
       expect(user_with_invalid_email_format).to_not be_valid
+    end
+  end
+
+  describe "name formating" do
+    let(:formatted_name) { User.new(name: "john doe", email: "user@bloccit.com") }
+
+    it "should return a properly capitalized name" do
+      expect(formatted_name.name).to eq("John Doe")
     end
   end
 end
