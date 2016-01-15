@@ -26,7 +26,7 @@ RSpec.describe User, type: :model do
       expect(user).to respond_to(:name)
     end
 
-    it "shoiuld respond to email" do
+    it "should respond to email" do
       expect(user).to respond_to(:email)
     end
 
