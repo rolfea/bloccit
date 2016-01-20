@@ -42,6 +42,15 @@ posts = Post.all
   )
 end
 
+#create questions
+100.times do
+  Question.create!(
+    title: RandomData.random_sentence,
+    body: RandomData.random_paragraph,
+    resolved: false
+  )
+end
+
 admin = User.create!(
   name:     'Admin User',
   email:    'admin@example.com',
@@ -59,5 +68,6 @@ puts "Seed finished"
 puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+puts "#{Question.count} questions created"
 puts "#{User.count} users created"
 puts "#{Vote.count} votes creaed"
