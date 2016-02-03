@@ -11,16 +11,36 @@
       <div class="media-body">
        <h2 class="media-heading"><%= @user.name %></h2>
        <small>
-         <%= pluralize(@user.posts.count, 'post') %>,
-         <div class='js-comments-count'><%=pluralize(@user.comments.count, 'comment') %></div>
+         <p>
+           <% if @user.posts.count == 0 %>
+             <%= "#{@user.name} has not submitted any posts yet." %>
+           <% else %>
+             <%= pluralize(@user.posts.count, 'post') %>
+           <% end %>
+         </p>
+       </small>
+       <small>
+         <p>
+           <% if @user.comments.count == 0 %>
+             <%= "#{@user.name} has not commented on any posts yet." %>
+           <% else %>
+             <div class='js-comments-count'><%=pluralize(@user.comments.count, 'comment') %></div>
+           <% end %>
+       </p>
        </small>
      </div>
     </div>
   </div>
+
+
 </div>
 
-<h2>Posts</h2>
-<%= render @user.posts %>
 
-<h2>Comments</h2>
-<%= render @user.comments %>
+  <h2>Posts</h2>
+  <%= render @user.posts %>
+
+  <h2>Comments</h2>
+  <%= render @user.comments %>
+
+  <h2>Favorites</h2>
+  <%= render @user.favorites.map(&:post) %>
